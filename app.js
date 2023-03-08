@@ -32,18 +32,7 @@ app.post('/user/create/', urlencodedParser, async (req, res) => {
             },
         }
     });
-    const user = prisma.user.findMany({
-        where: {
-            email: {
-                equals: req.body.userEmail,
-            },
-            name: {
-                equals: req.body.userName,
-            },
-        }
-    });
     res.send(`${req.body.userName} - ${req.body.userEmail}`)
-    res.json(user);
 })
 
 
